@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView Imagedice;
     private Button btnback, btnrandom, btnnext;
+    private int intdice = 1;
 
 
     @Override
@@ -34,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRandomPicture(1);
+                intdice += 1;
+                if (intdice == 7) {
+                    intdice = 1;
+                }
+                changeplay(intdice);
 
             }
         });
@@ -44,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         btnrandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRandomPicture(1);
-
+                myRandomPicture(intdice);
+            
             }
         });
     }
@@ -55,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRandomPicture(1);
+                intdice -= 1;
+                if (intdice == 0) {
+                    intdice = 6;
+                }
+                changeplay(intdice);
 
             }
         });
@@ -93,7 +102,33 @@ public class MainActivity extends AppCompatActivity {
         intSource[6] = R.drawable.dice6;
 
         Imagedice.setImageResource(intSource[myRandom]);
-    } // androidchange
+        
+    }
 
-    
+    private void changeplay(int intdice) {
+
+        Log.d("test", "ค่าที่รับได้ = " + intdice);
+
+        switch (intdice) {
+            case 1:
+                Imagedice.setImageResource(R.drawable.dice1);
+                break;
+            case 2:
+                Imagedice.setImageResource(R.drawable.dice2);
+                break;
+            case 3:
+                Imagedice.setImageResource(R.drawable.dice3);
+                break;
+            case 4:
+                Imagedice.setImageResource(R.drawable.dice4);
+                break;
+            case 5:
+                Imagedice.setImageResource(R.drawable.dice5);
+                break;
+            case 6:
+                Imagedice.setImageResource(R.drawable.dice6);
+                break;
+        }// switch
+        
+    }// changplay
 }
