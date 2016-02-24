@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         intSource[5] = R.drawable.dice5;
         intSource[6] = R.drawable.dice6;
         
+        
         Imagedice.setImageResource(intSource[myRandom]);
         MediaPlayer iMediaPlayer = MediaPlayer.create(getBaseContext(), intSound);
         iMediaPlayer.start();
