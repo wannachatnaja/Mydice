@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mydice</string>
+
+    <string name="head">ลูกเต๋ามหาสนุก โย้ว โย้ว</string>
 </resources>
